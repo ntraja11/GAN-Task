@@ -1,0 +1,76 @@
+{
+	"files":[
+	{	  
+	  "fileName": "Code of conduct.pdf",
+	  "type": "pdf",
+	  "owner": "John Smith",
+	  "role": "admin",
+	  "date": "14/9-2016",
+	  "size": "1.2MB"
+	},
+	{	  
+	  "fileName": "Documentation.docx",
+	  "type": "docx",
+	  "owner": "Jane Smith",
+	  "role": "Employee",
+	  "date": "15/6­2016",
+	  "size": "400KB"
+	},
+	{	  
+	  "fileName": "Purchases.xlsx",
+	  "type": "xlsx",
+	  "owner": "Kim Scott",
+	  "role": "Manager",
+	  "date": "5/11­2016",
+	  "size": "523KB"
+	},
+	{	  
+	  "fileName": "ConversationLog.txt",
+	  "type": "txt",
+	  "owner": "Kyle Jameson",
+	  "role": "Employee",
+	  "date": "15/6­2016",
+	  "size": "4.5MB"
+	},
+	{	  
+	  "fileName": "Invoice.pdf",
+	  "type": "pdf",
+	  "owner": "Kyle Jameson",
+	  "role": "Employee",
+	  "date": "25/6­2016",
+	  "size": "2.5MB"
+	},
+	{	  
+	  "fileName": "Internal Guest Rules.docx",
+	  "type": "docx",
+	  "owner": "Kim Scott",
+	  "role": "Manager",
+	  "date": "5/11­2016",
+	  "size": "15.3MB"
+	},
+	{	  
+	  "fileName": "Organization.xlsx",
+	  "type": "xlsx",
+	  "owner": "John Smith",
+	  "role": "Admin",
+	  "date": "12/9­2016",
+	  "size": "1.8MB"
+	},
+	{	  
+	  "fileName": "Invoice (2).pdf",
+	  "type": "pdf",
+	  "owner": "Kyle Jameson",
+	  "role": "Employee",
+	  "date": "27/6­2016",
+	  "size": "2.6MB"
+	},
+	{	  
+	  "fileName": "Invoice (3).pdf ",
+	  "type": "pdf",
+	  "owner": "Kyle Jameson",
+	  "role": "Employee",
+	  "date": "28/6­2016",
+	  "size": "2.6MB"
+	}
+	]
+}
