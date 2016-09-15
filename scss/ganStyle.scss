@@ -1,0 +1,70 @@
+$theme-color: #454545;
+$fontSize: 18px;
+
+body{	
+	font-family: 'Arial';
+	font-size: $fontSize;
+	width: 100%;
+	height: auto;
+	background: lighten($theme-color, 60%);
+}
+
+body, div, span{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+@mixin button-style($diff, $fSize, $buttonWidth, $imageSize){		
+	background-color: lighten($theme-color, $diff);
+	display: inline-block;
+	color: #fff;
+	padding: 8px;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 0;
+	width: $buttonWidth;
+
+	img{
+		width: $imageSize;
+		height:10%;
+		padding: 2px 10px;		
+		float:left;		
+	}
+	span{
+		font-size: $fSize;
+		float:left;
+	}
+}
+
+header{
+	height : 60px;	
+	background: $theme-color;	
+	width: 100%;
+}
+
+.headerContainer{
+	padding: 11px 20px;
+}
+
+.titleText{
+	@include button-style(0, 18px, 120px, 0);
+}
+.buttonContainer{
+	float: right;
+}
+.newFolder{
+	clear: both;
+	@include button-style(3%, 15px, 120px, 11%);	
+	margin-right: 15px;
+}
+.upload{
+	clear: both;
+	@include button-style(10%, 15px, 90px, 14%);		
+}
+
+.contentArea{
+	margin: 5%;
+	background: #fff;
+}
+
