@@ -40,7 +40,8 @@ header {
     float: left; }
 
 .buttonContainer {
-  float: right; }
+  float: right;
+  margin-top: 3px; }
 
 .newFolder {
   clear: both;
@@ -91,30 +92,28 @@ header {
   margin-bottom: 2px;
   color: #5f5f5f;
   position: relative;
-  top: 0;
-  -webkit-transition: top 2s;
-  transition: top 2s; }
+  top: 0px;
+  -webkit-transition: top .5s, transform .5s;
+  transition: top .5s, transform .5s; }
   .dataFeed img {
-    width: 11px;
-    height: 11px;
     margin-right: 15px; }
   .dataFeed .feedHeader {
     padding: 17px 30px; }
-  .dataFeed .feedTitle {
-    font-weight: bold; }
-    .dataFeed .feedTitle span {
-      margin-left: 10px; }
   .dataFeed .feed {
     padding: 17px 30px;
     font-size: 13px; }
   .dataFeed .nameColumn {
     width: 35%; }
+    .dataFeed .nameColumn img {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle; }
   .dataFeed .ownerColumn {
     width: 25%; }
   .dataFeed .dateColumn {
     width: 15%; }
   .dataFeed .sizeColumn {
-    width: 15%; }
+    width: 10%; }
   .dataFeed .deleteFeedBtn {
     float: right;
     background-color: #525252;
@@ -137,5 +136,13 @@ header {
       font-size: 15px;
       float: left; }
   .dataFeed input {
-    margin: 0 20px 0 0;
+    margin: -5px 20px 0 0;
     vertical-align: middle; }
+  .dataFeed .feedTitle {
+    font-weight: bold; }
+    .dataFeed .feedTitle span {
+      margin-left: 10px; }
+  .dataFeed .searchFeed img, .dataFeed .feedTitle img {
+    width: 11px;
+    height: 11px;
+    margin-right: 15px; }

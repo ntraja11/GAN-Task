@@ -28,7 +28,7 @@
 		</header>
 		<main class="feedBlock" id="feedContainer">
 			<div class="dataFeed">
-				<div class="feed">
+				<div class="feed searchFeed">
 					<img src="images/search.png"/>
 					<p>Search within these content . . .</p>
 				</div>
@@ -50,7 +50,7 @@
 			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Code of Conduct" name="selectFeed">
-					<p class="nameColumn">Code of conduct.pdf</p>
+					<p class="nameColumn"><span><img src="images/pdf.png"/></span>Code of conduct.pdf</p>
 					<p class="ownerColumn">John Smith</p>	
 					<p class="dateColumn">14/9-2016</p>	
 					<p class="sizeColumn">1.2MB</p>
@@ -60,7 +60,7 @@
 			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Documantation" name="selectFeed">
-					<p class="nameColumn">Documentation.docx</p>
+					<p class="nameColumn"><span><img src="images/doc.png"/></span>Documentation.docx</p>
 					<p class="ownerColumn">Jane Smith</p>	
 					<p class="dateColumn">15/6-2016</p>	
 					<p class="sizeColumn">400KB</p>	
@@ -70,7 +70,7 @@
 			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Purchases" name="selectFeed">
-					<p class="nameColumn">Purchases.xlsx</p>
+					<p class="nameColumn"><span><img src="images/xls.png"/></span>Purchases.xlsx</p>
 					<p class="ownerColumn">Kim Scott</p>	
 					<p class="dateColumn">5/11-2016</p>	
 					<p class="sizeColumn">523KB</p>	
@@ -84,15 +84,17 @@
 					<p class="ownerColumn">Kyle Jameson</p>	
 					<p class="dateColumn">15/6-2016</p>	
 					<p class="sizeColumn">4.5MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>
 			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Invoice" name="selectFeed">
-					<p class="nameColumn">Invoice.pdf.txt</p>
+					<p class="nameColumn">Invoice.pdf</p>
 					<p class="ownerColumn">Kyle Jameson</p>	
 					<p class="dateColumn">25/6-2016</p>	
 					<p class="sizeColumn">2.5MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>
 			<div class="dataFeed">
@@ -102,33 +104,37 @@
 					<p class="ownerColumn">Kim Scott</p>	
 					<p class="dateColumn">5/11-2016</p>	
 					<p class="sizeColumn">15.3MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>			
-			<div class="dataFeed">
+			<div class="dataFeed" onclick="checkTop(this)">
 				<div class="feed">
 					<input type="checkbox" value="Organization" name="selectFeed">
 					<p class="nameColumn">Organization.xlsx</p>
 					<p class="ownerColumn">John Smith</p>	
 					<p class="dateColumn">12/9-2016</p>	
 					<p class="sizeColumn">1.8MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>
-			<div class="dataFeed" onclick="checkTop(this)">
+			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Invoice 2" name="selectFeed">
 					<p class="nameColumn">Invoice (2).pdf</p>
 					<p class="ownerColumn">Kyle Jameson</p>	
 					<p class="dateColumn">27/6-2016</p>	
 					<p class="sizeColumn">2.6MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>
-			<div class="dataFeed" onclick="checkTop(this)">
+			<div class="dataFeed">
 				<div class="feed">
 					<input type="checkbox" value="Invoice 3" name="selectFeed">
 					<p class="nameColumn">Invoice (3).pdf</p>
 					<p class="ownerColumn">Kyle Jameson</p>	
 					<p class="dateColumn">28/6-2016</p>	
 					<p class="sizeColumn">2.6MB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
 				</div>
 			</div>
 
@@ -138,22 +144,43 @@
   	<script>
 
   		var feedContainer = document.getElementById('feedContainer')
-  		var feedList = document.getElementsByName('selectFeed');
-
-  		function selectAllFeeds(chkBox){  			  			
-  			for(feed in feedList)
-  				feedList[feed].checked = chkBox.checked;
+  		var checkBoxList = document.getElementsByName('selectFeed');
+  		var feedIndex;  		
+  		var topArray = [];
+  		
+  		// Set Top value for each data feed and push in to the array
+  		function setTop(){
+  			for(var i=0; i<checkBoxList.length; i++){  				
+  				checkBoxList[i].parentNode.parentNode.style.top = "0px";
+  				topArray.push(0);
+  			}  			
   		}
 
+  		// Function to select all the feeds using SelectAll Check box
+  		function selectAllFeeds(chkBox){  			  			
+  			for(feed in checkBoxList)
+  				checkBoxList[feed].checked = chkBox.checked;
+  		}
+
+  		// Delete the data feed after a confirmation and animate the feeds below 
   		function deleteFeed(btn){  			  			
   			var userConfirm = confirm("You are about to cancel a data feed from the list. Please confirm the same.");
   			if(userConfirm){
-  				var feedHolder = btn.parentNode.parentNode;
-  				feedContainer.removeChild(feedHolder);
+  				var feedHolder = btn.parentNode.parentNode;  				
+  				feedHolder.style.transform = "scale(0,0)";  				
+  				feedIndex = Array.prototype.indexOf.call(feedHolder.parentNode.children, feedHolder);
+  				animateFeeds();
   			}  			  			
   		}
 
-  		
+  		// Animate the feeds to fill the gap after deleting the feed
+  		function animateFeeds(){  			  			
+  			for(var i=feedIndex-2; i<feedContainer.children.length-3; i++){  				
+  				checkBoxList[i].parentNode.parentNode.style.top = topArray[i]-52 +"px";
+  				topArray[i] -= 52;
+  			}  	
+  		}
+  		setTop();
 
   	</script>
 </body>
