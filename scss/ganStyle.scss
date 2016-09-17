@@ -1,4 +1,12 @@
+
+
+$themeColor: rgba(240, 20, 10, 0.72);
 $themeColor: #454545;
+$themeColor: #00b0f0;
+$themeColor: #00Ff00;
+$themeColor: #051207;
+
+
 $fontSize: 18px;
 $marginGap: 30px;
 $nameColumnWidth: 35%;
@@ -12,7 +20,7 @@ body{
 	font-size: $fontSize;
 	width: 100%;
 	height: auto;
-	background: lighten($themeColor, 60%);
+	background: lighten($themeColor, 40%);
 }
 
 body, div, p{
@@ -65,7 +73,7 @@ header{
 }
 .newFolder{
 	clear: both;
-	@include button-style(3%, 15px, 120px, 11%);	
+	@include button-style(7%, 15px, 120px, 11%);	
 	margin-right: $marginGap;	
 }
 .upload{
@@ -76,6 +84,7 @@ header{
 .feedBlock{
 	margin: 3%;	
 	width: 94%;		
+	clear: both;
 }
 
 .dataFeed{
@@ -139,12 +148,8 @@ header{
 
 	top: 0px;
 	-webkit-transition: top .5s, transform .5s;
+	-ms-transition: top .5s, transform .5s;
+	-moz-transition: top .5s, transform .5s;
     transition: top .5s, transform .5s;
 	
 }
-
-
-
-
-
-
