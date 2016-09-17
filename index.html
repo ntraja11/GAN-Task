@@ -13,15 +13,148 @@
 
 		<header>
 			<div class="headerContainer">
-				<div class="titleText"><span>File Manager</span></div>
-				<div class="buttonContainer"><div class="newFolder"><img src="images/newFolder.png"/><span>New Folder</span></div><div class="upload"><img src="images/uploadButton.png"/><span>Upload</span></div></div>				
+				<div class="titleText"><p>File Manager</p></div>
+				<div class="buttonContainer">
+					<div class="newFolder">
+						<img src="images/newFolder.png" class="imageIcon" />
+						<p>New Folder</p>
+					</div>
+					<div class="upload">
+						<img src="images/uploadButton.png" class="imageIcon" />
+						<p>Upload</p>
+					</div>
+				</div>				
 			</div>			
 		</header>
-		<main class="contentArea">
-		</main>
+		<main class="feedBlock" id="feedContainer">
+			<div class="dataFeed">
+				<div class="feed">
+					<img src="images/search.png"/>
+					<p>Search within these content . . .</p>
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feedHeader">
+					<p>My Documents > Company Policy</p>
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed feedTitle">
+					<input type="checkbox" onclick="selectAllFeeds(this)" name="selectAllFeed" value="all">
+					<p class="nameColumn">NAME <span><img src="images/up-and-down.png"/></span></p>
+					<p class="ownerColumn">OWNER<span><img src="images/up-and-down.png"/></span></p>	
+					<p class="dateColumn">DATE</p>	
+					<p class="sizeColumn">SIZE</p>	
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Code of Conduct" name="selectFeed">
+					<p class="nameColumn">Code of conduct.pdf</p>
+					<p class="ownerColumn">John Smith</p>	
+					<p class="dateColumn">14/9-2016</p>	
+					<p class="sizeColumn">1.2MB</p>
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>	
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Documantation" name="selectFeed">
+					<p class="nameColumn">Documentation.docx</p>
+					<p class="ownerColumn">Jane Smith</p>	
+					<p class="dateColumn">15/6-2016</p>	
+					<p class="sizeColumn">400KB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>	
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Purchases" name="selectFeed">
+					<p class="nameColumn">Purchases.xlsx</p>
+					<p class="ownerColumn">Kim Scott</p>	
+					<p class="dateColumn">5/11-2016</p>	
+					<p class="sizeColumn">523KB</p>	
+					<p class="deleteFeedBtn" onclick="deleteFeed(this)">X</p>
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Conversation" name="selectFeed">
+					<p class="nameColumn">ConversationLog.txt</p>
+					<p class="ownerColumn">Kyle Jameson</p>	
+					<p class="dateColumn">15/6-2016</p>	
+					<p class="sizeColumn">4.5MB</p>	
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Invoice" name="selectFeed">
+					<p class="nameColumn">Invoice.pdf.txt</p>
+					<p class="ownerColumn">Kyle Jameson</p>	
+					<p class="dateColumn">25/6-2016</p>	
+					<p class="sizeColumn">2.5MB</p>	
+				</div>
+			</div>
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Guest Rules" name="selectFeed">
+					<p class="nameColumn">Internal Guest Rules.docx</p>
+					<p class="ownerColumn">Kim Scott</p>	
+					<p class="dateColumn">5/11-2016</p>	
+					<p class="sizeColumn">15.3MB</p>	
+				</div>
+			</div>			
+			<div class="dataFeed">
+				<div class="feed">
+					<input type="checkbox" value="Organization" name="selectFeed">
+					<p class="nameColumn">Organization.xlsx</p>
+					<p class="ownerColumn">John Smith</p>	
+					<p class="dateColumn">12/9-2016</p>	
+					<p class="sizeColumn">1.8MB</p>	
+				</div>
+			</div>
+			<div class="dataFeed" onclick="checkTop(this)">
+				<div class="feed">
+					<input type="checkbox" value="Invoice 2" name="selectFeed">
+					<p class="nameColumn">Invoice (2).pdf</p>
+					<p class="ownerColumn">Kyle Jameson</p>	
+					<p class="dateColumn">27/6-2016</p>	
+					<p class="sizeColumn">2.6MB</p>	
+				</div>
+			</div>
+			<div class="dataFeed" onclick="checkTop(this)">
+				<div class="feed">
+					<input type="checkbox" value="Invoice 3" name="selectFeed">
+					<p class="nameColumn">Invoice (3).pdf</p>
+					<p class="ownerColumn">Kyle Jameson</p>	
+					<p class="dateColumn">28/6-2016</p>	
+					<p class="sizeColumn">2.6MB</p>	
+				</div>
+			</div>
 
+		</main>
 	</div>
 
-  	<script src=""></script>
+  	<script>
+
+  		var feedContainer = document.getElementById('feedContainer')
+  		var feedList = document.getElementsByName('selectFeed');
+
+  		function selectAllFeeds(chkBox){  			  			
+  			for(feed in feedList)
+  				feedList[feed].checked = chkBox.checked;
+  		}
+
+  		function deleteFeed(btn){  			  			
+  			var userConfirm = confirm("You are about to cancel a data feed from the list. Please confirm the same.");
+  			if(userConfirm){
+  				var feedHolder = btn.parentNode.parentNode;
+  				feedContainer.removeChild(feedHolder);
+  			}  			  			
+  		}
+
+  		
+
+  	</script>
 </body>
 </html>
